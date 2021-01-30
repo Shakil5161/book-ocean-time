@@ -127,6 +127,5 @@ nav ul li a:hover, a.active{
     text-align: center;
 }
 .invoice{
-    display: block;
-    
+    display: none;
 }

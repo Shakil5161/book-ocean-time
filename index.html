@@ -36,8 +36,6 @@
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
                 scrambled it to make a type specimen book./p>
         </div>
-
-
         <div id="booking-area" class="booking-form">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
@@ -70,7 +68,6 @@
                             class="fas fa-plus"></i></button>
                 </div>
             </div>
-
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
@@ -92,7 +89,6 @@
                         <p id="sub-total">$0</p>
                     </div>
                 </div>
-
                 <div class="amount">
                     <div class="left">
                         <p>Charge 10% VAT</p>
@@ -111,9 +107,8 @@
                     </div>
                 </div>
             </div>
-            <button type="reset" id="book-now" class="btn-style">Book Now</button>
+            <button type="reset" onclick="bookButton()" class="btn-style">Book Now</button>
         </div>
-
         <!-- invoice -->
         <div id="invoice-area" class="invoice">
             <div class="booking-form">
@@ -124,17 +119,13 @@
                 <div class="input-group">
                     <label for="">Flying To : New York, United States</label>
                 </div>
-                <div class="input-group f-class">
-                    <!-- <div>
-                        <label for="">First Class : $150 X</span id="invoice-first-class"></label>
-                    </div> -->
+                <div class="input-group f-class">           
                     <div class="left">
                         <p>First Class : $150 x</p>
                     </div>
                     <div class="right">
                         <p id="invoice-first-class"></p>
                     </div>
-
                 </div>
                 <div class="input-group f-class">
                     <div class="left">
@@ -171,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <button  id="invoice-btn" class="btn-style ">Cancel</button>
+                <button class="btn-style">Print</button>
             </div>
         </div>
     </main>
@@ -187,10 +178,8 @@
             if (isIncrease == false && countNumber > 0) {
                 newCount = countNumber - 1;
             }
-            document.getElementById(ticket + '-count').value = newCount;
-            
-            ticketPrice();
-            
+            document.getElementById(ticket + '-count').value = newCount;            
+            ticketPrice();      
         }
         function ticketPrice() {
             const firstClassCountNumber = ticketNumber('first-class');
@@ -211,7 +200,7 @@
             const countNumber = parseInt(count);
             return countNumber;
         }
-        document.getElementById('book-now').addEventListener('click', function () {
+        function bookButton() {
             const bookingArea = document.getElementById('booking-area');
             bookingArea.style.display = "none";
             const invoiceArea = document.getElementById('invoice-area');
@@ -220,57 +209,7 @@
             document.getElementById('invoice-first-class').innerText = invoiceFirst;
             const invoiceEconomy = document.getElementById('economy-count').value;
             document.getElementById('invoice-economy').innerText = invoiceEconomy;
-        })
-        document.getElementById('invoice-btn').addEventListener('click', function () {
-            const bookingArea = document.getElementById('booking-area');
-            bookingArea.style.display = "block";
-            const invoiceArea = document.getElementById('invoice-area');
-            invoiceArea.style.display = "none";
-
-            
-        })
-
-        // function invoice() {
-        //     const quantity = document.getElementById('first-class-count').value;
-        //     // const quantityNumber = parseInt(quantity);
-        //     document.getElementById('invoice-first-class'). = quantityNumber;
-        // }
-        // document.getElementById('economy-increase').addEventListener('click', function () {
-        //     const economyCount = document.getElementById('economy-count').value;
-        //     const economyCountNumber = parseInt(economyCount);
-        //     const economyNewCount = economyCountNumber + 1;
-        //     document.getElementById('economy-count').value = economyNewCount;
-        //     // const firstClassSubTotal = economyNewCount * 100;
-        //     // document.getElementById('sub-total').innerText = "$" + firstClassSubTotal;
-        //     // const firstClassTax = firstClassSubTotal * .1;
-        //     // document.getElementById('tax').innerText = "$" + firstClassTax;
-        //     // const total = firstClassSubTotal + firstClassTax;
-        //     // document.getElementById('total').innerText = "$" + total;
-        // })
-    //    document.getElementById('first-class-increase').addEventListener('click',function () {
-    //         const firstCount = document.getElementById('first-class-count').value;
-    //         const firstCountNumber = parseInt(firstCount);
-    //         const firstNewCount = firstCountNumber + 1;
-    //         document.getElementById('first-class-count').value = firstNewCount;
-    //         const firstClassSubTotal = firstNewCount * 500;
-    //         document.getElementById('sub-total').innerText = "$" + firstClassSubTotal;
-    //         const firstClassTax = firstClassSubTotal * .1;
-    //         document.getElementById('tax').innerText = "$" + firstClassTax;
-    //         const total = firstClassSubTotal + firstClassTax;
-    //         document.getElementById('total').innerText = "$" + total;
-    //     })
-    //     document.getElementById('first-class-decrease').addEventListener('click', function () {
-    //         const firstCount = document.getElementById('first-class-count').value;
-    //         const firstCountNumber = parseInt(firstCount);
-    //         const firstNewCount = firstCountNumber - 1;
-    //         document.getElementById('first-class-count').value = firstNewCount;
-    //         const firstClassSubTotal = firstNewCount * 500;
-    //         document.getElementById('sub-total').innerText = "$" + firstClassSubTotal;
-    //         const firstClassTax = firstClassSubTotal * .1;
-    //         document.getElementById('tax').innerText = "$" + firstClassTax;
-    //         const total = firstClassSubTotal + firstClassTax;
-    //         document.getElementById('total').innerText = "$" + total;
-    //     })
+        }
     </script>
 </body>
 
