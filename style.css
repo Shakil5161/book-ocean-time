@@ -122,3 +122,10 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+.invoice-h3{
+    text-align: center;
+}
+.invoice{
+    display: block;
+    
+}
